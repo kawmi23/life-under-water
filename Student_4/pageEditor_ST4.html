@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor - Student 4</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        
+
+        .editor-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,105,148,0.2);
+            border-radius: 20px;
+        
+        }
+        
+        /* Header */
+        .editor-header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 4px solid #006994;
+            margin-bottom: 2rem;
+        }
+
+        .editor-header h1 {
+            color: #006994;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .student-badge {
+            display: inline-block;
+            background: #006994;
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: #e0f2fe;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .toc h2 {
+            color: #006994;
+            margin-bottom: 1rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .toc li {
+            margin: 0;
+        }
+
+        .toc a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: white;
+            color: #006994;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid #006994;
+            transition: all 0.3s ease;
+        }
+
+        .toc a:hover {
+            background: #006994;
+            color: white;
+        }
+
+        /* Sections */
+        .editor-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            scroll-margin-top: 20px;
+        }
+
+        .editor-section h2 {
+            color: #006994;
+            border-bottom: 3px solid #00a1d9;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .editor-section h3 {
+            color: #2c5282;
+            margin: 1.5rem 0 1rem;
+        }
+
+        /* Task cards */
+        .task-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+        }
+
+        .task-card h4 {
+            color: #006994;
+            margin-bottom: 0.5rem;
+        }
+
+        .task-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .task-links a {
+            padding: 0.5rem 1rem;
+            background: #006994;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .task-links a:hover {
+            background: #319cbf;
+            transform: translateY(-2px);
+        }
+
+        .task-links a.validation-link {
+            background: #2e8b57;
+        }
+
+        /* Code blocks */
+        .code-block {
+            background:rgb(83, 176, 213);
+            color: #070707;
+            padding: 1rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+        }
+
+        /* Meetings table */
+        .meetings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .meetings-table th {
+            background: #006994;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .meetings-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .meetings-table tr:hover {
+            background: #f0f9ff;
+        }
+
+        .attended {
+            color: #2e8b57;
+            font-weight: bold;
+        }
+
+        .not-attended {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        /* References */
+        .references {
+            list-style: none;
+        }
+
+        .references li {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            background: #f0f9ff;
+           border-left: 5px solid #006994;
+        }
+
+       
+        .back-to-top {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background:linear-gradient(to right,#0077b6, #00b4d8);;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background: #004d73;
+            transform: translateY(-3px);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+ <header>
+    <div class="logo">
+        <!-- placeholder logo icon (textual but keep structure) -->
+        <img src=" logo.png" alt="Ocean logo">
+        <h1>Life Below Water</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="ais.html">Action Simulator</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+    </nav>
+        </header>
+    <div class="editor-container">
+       
+        <div class="editor-header">
+            <h1>ᝰ🖌️Page Editor</h1>
+            <p>Student 4: Kawmini Dissanayaka.</p>
+            <div class="student-badge">Role: User Profile & Sitemap.</div>
+        </div>
+
+
+
+
+        <!-- Completed Tasks Overview -->
+        <div class="toc">
+            <h2>📋 Completed Pages & Tasks</h2>
+            <ul>
+                <li><a href="#profile-page">User Profile Page</a></li>
+                <li><a href="#sitemap-page">Sitemap Page (SVG)</a></li>
+                <li><a href="#content-page">Content Page</a></li>
+                <li><a href="#technical">Technical Implementation</a></li>
+                <li><a href="#challenges">Challenges & Lessons</a></li>
+                <li><a href="#accessibility">Accessibility</a></li>
+                <li><a href="#compliance">JANET Compliance</a></li>
+                <li><a href="#meetings">Meeting Log</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+        </div>
+
+        <!-- Profile Page Section -->
+        <section id="profile-page" class="editor-section">
+            <h2>🌊 User Profile Page (profile.html)</h2>
+            
+            <div class="task-card">
+                <h4>Page Overview</h4>
+                <p>The User Profile page is an interactive JavaScript-driven profile builder that collects user information through progressive prompts and displays it dynamically. This page demonstrates DOM manipulation, event handling, and state management.</p>
+            </div>
+
+            <h3>HTML Structure</h3>
+            <p>Key HTML tags used and their purpose:</p>
+            <ul>
+                <li><strong>&lt;header&gt; & &lt;nav&gt;</strong> - Shared template navigation with active page indication</li>
+                <li><strong>&lt;main&gt;</strong> - Contains all profile-building interface elements</li>
+                <li><strong>&lt;div class="step-card"&gt;</strong> - Interactive cards for each profile step</li>
+                <li><strong>&lt;div class="progress-bar"&gt;</strong> - Visual completion indicator</li>
+                <li><strong>&lt;div class="profile-output"&gt;</strong> - Container for dynamically displayed user data</li>
+                <li><strong>&lt;button&gt;</strong> - Control buttons for step navigation and returning to skipped steps</li>
+                <li><strong>&lt;footer&gt;</strong> - Contains links to Page Editor and Validation pages</li>
+            </ul>
+
+            <h3>CSS Techniques (Embedded - 5+ Rules)</h3>
+            <div class="code-block">
+                /* Rule 1: Step card styling with gradient background */
+                .step-card {
+                    background: linear-gradient(135deg, #006994 0%, #00a1d9 100%);
+                    transition: transform 0.3s ease;
+                }
+                
+                /* Rule 2: Hover effect with elevation */
+                .step-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 25px rgba(0,105,148,0.4);
+                }
+                
+                /* Rule 3: Progress bar animation */
+                .progress-fill {
+                    animation: progressPulse 2s infinite;
+                }
+                
+                /* Rule 4: Profile output container styling */
+                .profile-output {
+                    border: 3px solid #006994;
+                    box-shadow: 0 10px 40px rgba(0,105,148,0.2);
+                }
+                
+                /* Rule 5: Button styling with hover effects */
+                .control-btn {
+                    transition: all 0.3s ease;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+            </ul>
+
+            <h3>JavaScript Implementation</h3>
+            <p>The page uses JavaScript for:</p>
+            <ul>
+                <li><strong>Prompt-based data collection:</strong> Three steps with four prompts each (12 total prompts)</li>
+                <li><strong>State management:</strong> profileData object tracks all user inputs</li>
+                <li><strong>Progress tracking:</strong> Dynamic progress bar updates based on completed steps</li>
+                <li><strong>Skip functionality:</strong> Users can skip steps, marked visually and tracked</li>
+                <li><strong>Return to skipped steps:</strong> Option to complete previously skipped information</li>
+                <li><strong>DOM manipulation:</strong> Profile sections reveal progressively as data is added</li>
+            </ul>
+
+            <div class="task-links">
+                <a href="profile.html" target="_blank">🔗 View Profile Page</a>
+                <a href="validation_ST4.html#profile-validation" class="validation-link" target="_blank">✅ View Validation</a>
+            </div>
+        </section>
+
+        <!-- Sitemap Page Section -->
+        <section id="sitemap-page" class="editor-section">
+            <h2>🗺️ Sitemap Page (sitemap.html)</h2>
+            
+            <div class="task-card">
+                <h4>Page Overview</h4>
+                <p>The Sitemap page uses SVG (Scalable Vector Graphics) to create a visual representation of the website structure. Each node is clickable and links to the corresponding page, demonstrating both technical SVG implementation and interactive navigation.</p>
+            </div>
+
+            <h3>HTML Structure</h3>
+            <ul>
+                <li><strong>&lt;svg&gt;</strong> - Main container with viewBox for responsive scaling</li>
+                <li><strong>&lt;a&gt; wrapped around &lt;g&gt;</strong> - Creates clickable nodes that open in new tabs</li>
+                <li><strong>&lt;rect&gt; and &lt;circle&gt;</strong> - Different shapes distinguish page types</li>
+                <li><strong>&lt;text&gt;</strong> - Labels for each node</li>
+                <li><strong>&lt;line&gt;</strong> - Connects nodes to show hierarchy</li>
+                <li><strong>&lt;title&gt;</strong> - Provides tooltips and screen reader text</li>
+            </ul>
+
+            <h3>SVG Implementation Details</h3>
+            <ul>
+                <li><strong>Hierarchy:</strong> Splash → Home → All other pages with clear parent-child relationships</li>
+                <li><strong>Node types:</strong> Rectangles for main pages, circles for content pages, small rectangles for editors</li>
+                <li><strong>Color coding:</strong> Dark blue (main), light blue (content), green (Student 4 pages), gray (utility)</li>
+                <li><strong>Interactive features:</strong> Hover effects change fill color and add gold border; focus states for keyboard navigation</li>
+                <li><strong>Accessibility:</strong> tabindex="0" on each node group, ARIA labels, and title elements</li>
+            </ul>
+
+            <h3>CSS for SVG</h3>
+            <div class="code-block">
+                /* Hover effect for all nodes */
+                .node:hover rect, .node:hover circle {
+                    fill: #00a1d9;
+                    stroke: #ffd700;
+                    stroke-width: 3;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+                }
+                
+                /* Focus state for keyboard navigation */
+                .node:focus rect, .node:focus circle {
+                    stroke: #ffd700;
+                    stroke-width: 4;
+                }
+            </ul>
+
+            <h3>Responsiveness</h3>
+            <p>The SVG uses viewBox="0 0 900 700" and width:100% to scale proportionally across devices. The container has overflow:visible to prevent clipping on smaller screens.</p>
+
+            <div class="task-links">
+                <a href="sitemap.html" target="_blank">🔗 View Sitemap Page</a>
+                <a href="validation_ST4.html#sitemap-validation" class="validation-link" target="_blank">✅ View Validation</a>
+            </div>
+        </section>
+
+        <!-- Content Page Section -->
+        <section id="content-page" class="editor-section">
+            <h2>📖 Content Page: Sustainable Fishing (content_ST4.html)</h2>
+            
+            <div class="task-card">
+                <h4>Page Overview</h4>
+                <p>My individual content page focuses on sustainable fishing as a solution to overfishing, aligned with SDG 14. The page features a sticky navigation menu, multiple sections with internal anchor links, and a "Go to Top" button.</p>
+            </div>
+
+            <h3>Key Features Implemented</h3>
+            <ul>
+                <li><strong>Internal navigation menu:</strong> Sticky table of contents with links to all sections</li>
+                <li><strong>Six structured sections:</strong> Introduction, Problem, Solutions, Benefits, Actions, Resources</li>
+                <li><strong>Four+ images:</strong> All with descriptive alt text showing fishing practices and marine life</li>
+                <li><strong>Facts list:</strong> Key statistics in an easily scannable format</li>
+                <li><strong>"Go to Top" button:</strong> Fixed position button visible throughout scrolling</li>
+                <li><strong>Anchor links:</strong> Each section has a unique ID for direct linking</li>
+            </ul>
+
+            <h3>HTML Structure</h3>
+            <ul>
+                <li><strong>&lt;nav class="page-nav"&gt;</strong> - Sticky internal navigation menu</li>
+                <li><strong>&lt;section id="..."&gt;</strong> - Each content section with unique ID for anchoring</li>
+                <li><strong>&lt;div class="content-image-grid"&gt;</strong> - Responsive image gallery within content</li>
+                <li><strong>&lt;div class="facts-list"&gt;</strong> - Highlighted statistics section</li>
+                <li><strong>&lt;a href="#" class="go-to-top"&gt;</strong> - Fixed position return button</li>
+            </ul>
+
+            <div class="task-links">
+                <a href="content_ST4.html" target="_blank">🔗 View Content Page</a>
+                <a href="validation_ST4.html#content-validation" class="validation-link" target="_blank">✅ View Validation</a>
+            </div>
+        </section>
+
+        <!-- Technical Implementation Section -->
+        <section id="technical" class="editor-section">
+            <h2>💻 Technical Implementation Summary</h2>
+
+            <h3>HTML5 Semantic Structure</h3>
+            <p>All my pages use semantic HTML5 elements including header, nav, main, section, and footer. This improves readability, SEO, and accessibility.</p>
+
+            <h3>CSS Techniques</h3>
+            <ul>
+                <li><strong>Flexbox & Grid:</strong> Used for responsive layouts (step cards, image grids, profile sections)</li>
+                <li><strong>Gradient backgrounds:</strong> Applied to cards for visual appeal</li>
+                <li><strong>Transitions & transforms:</strong> Smooth hover effects on interactive elements</li>
+                <li><strong>Keyframe animations:</strong> Progress bar pulse animation</li>
+                <li><strong>Position sticky/fixed:</strong> Internal navigation and "Go to Top" button</li>
+                <li><strong>Media queries:</strong> Responsive design for mobile devices</li>
+            </ul>
+
+            <h3>JavaScript Features</h3>
+            <ul>
+                <li><strong>Object data structure:</strong> Profile data stored in nested objects</li>
+                <li><strong>Functions:</strong> Modular functions for each step and updates</li>
+                <li><strong>Conditional logic:</strong> Handling skipped vs completed steps</li>
+                <li><strong>DOM manipulation:</strong> Updating displayed content and progress bar</li>
+                <li><strong>Event handling:</strong> Button clicks trigger prompt sequences</li>
+            </ul>
+        </section>
+
+        <!-- Challenges and Lessons Learned -->
+        <section id="challenges" class="editor-section">
+            <h2>🔧 Challenges and Lessons Learned</h2>
+
+            <div class="task-card">
+                <h4>Challenge 1: SVG Accessibility</h4>
+                <p><strong>Problem:</strong> Making SVG elements keyboard-accessible and screen-reader friendly was initially difficult. Simply adding links inside SVG didn't provide proper focus management.</p>
+                <p><strong>Solution:</strong> Added tabindex="0" to each group, included title elements, and used ARIA labels. Tested with keyboard navigation to ensure all nodes are reachable.</p>
+                <p><strong>Lesson:</strong> SVGs need explicit accessibility considerations; they don't inherit accessibility features automatically.</p>
+            </div>
+
+            <div class="task-card">
+                <h4>Challenge 2: State Management in Profile Builder</h4>
+                <p><strong>Problem:</strong> Tracking which steps were completed vs skipped while allowing users to return to skipped steps required careful state design.</p>
+                <p><strong>Solution:</strong> Created separate objects for profileData, completedSteps, and skippedSteps. Added functions to update all three consistently.</p>
+                <p><strong>Lesson:</strong> Planning data structures before coding saves time and reduces bugs.</p>
+            </div>
+
+            <div class="task-card">
+                <h4>Challenge 3: Responsive SVG</h4>
+                <p><strong>Problem:</strong> The sitemap SVG was too large on mobile and text became unreadable.</p>
+                <p><strong>Solution:</strong> Used viewBox instead of fixed width/height, set SVG width to 100%, and tested on multiple screen sizes. Considered but decided against separate mobile version.</p>
+                <p><strong>Lesson:</strong> SVGs with viewBox scale beautifully if designed with responsiveness in mind from the start.</p>
+            </div>
+
+            <div class="task-card">
+                <h4>Challenge 4: User Experience with Prompts</h4>
+                <p><strong>Problem:</strong> Multiple consecutive prompts could frustrate users.</p>
+                <p><strong>Solution:</strong> Added clear step indicators in prompt messages, allowed skipping, and provided positive feedback after each step completion.</p>
+                <p><strong>Lesson:</strong> Even with technical requirements, user experience matters. Small touches like confirmation messages improve engagement.</p>
+            </div>
+        </section>
+
+        <!-- Accessibility Section -->
+        <section id="accessibility" class="editor-section">
+            <h2>♿ Accessibility Considerations</h2>
+
+            <h3>Semantic HTML</h3>
+            <ul>
+                <li>Proper heading hierarchy (h1 → h2 → h3) for screen reader navigation</li>
+                <li>Landmark elements (header, nav, main, footer) for easy page navigation</li>
+                <li>Lists (ul, ol) used where appropriate for structured content</li>
+            </ul>
+
+            <h3>Images</h3>
+            <ul>
+                <li>All images include descriptive alt text (e.g., "Fisherman using traditional sustainable fishing methods")</li>
+                <li>Decorative images in profile avatar use empty alt or are handled via CSS</li>
+            </ul>
+
+            <h3>Keyboard Navigation</h3>
+            <ul>
+                <li>Sitemap nodes have tabindex="0" and visible focus states</li>
+                <li>All buttons and links are keyboard accessible</li>
+                <li>"Go to Top" button can be activated via keyboard</li>
+                <li>Logical tab order through all interactive elements</li>
+            </ul>
+
+            <h3>Color and Contrast</h3>
+            <ul>
+                <li>High contrast between text and backgrounds (dark blue on light blue/white)</li>
+                <li>Color not used as sole indicator (icons and text also convey meaning)</li>
+                <li>Hover states provide additional visual feedback</li>
+            </ul>
+
+            <h3>Screen Reader Support</h3>
+            <ul>
+                <li>SVG nodes include title elements and ARIA labels</li>
+                <li>Form fields in feedback page (if applicable) have associated labels</li>
+                <li>Meaningful link text (not just "click here")</li>
+            </ul>
+
+            <h3>Responsive Design</h3>
+            <ul>
+                <li>All pages are usable at 200% zoom</li>
+                <li>Mobile layouts stack content appropriately</li>
+                <li>Touch targets are at least 44x44px on mobile</li>
+            </ul>
+        </section>
+
+        <!-- JANET Compliance Section -->
+        <section id="compliance" class="editor-section">
+            <h2>📜 JANET Regulations Compliance</h2>
+
+            <div class="task-card">
+                <h4>Understanding JANET (Joint Academic NETwork)</h4>
+                <p>JANET is the UK's education and research network that provides internet services to universities. All web pages published on University of Westminster servers must comply with JANET's acceptable use policies.</p>
+            </div>
+
+            <h3>How My Pages Comply:</h3>
+
+            <h4>1. Appropriate and Ethical Content</h4>
+            <ul>
+                <li>All content is educational and promotes positive environmental action</li>
+                <li>No offensive, illegal, or harmful material</li>
+                <li>Information is factual and properly attributed</li>
+                <li>Promotes SDG 14: Life Below Water, which aligns with university values</li>
+            </ul>
+
+            <h4>2. Respect for Intellectual Property</h4>
+            <ul>
+                <li>All text content is original, written by me (Alex Morgan)</li>
+                <li>Images will use royalty-free sources (iStockPhoto, Unsplash) with proper attribution</li>
+                <li>References section lists all consulted sources</li>
+                <li>No copying from UN SDG website or other copyrighted sources</li>
+            </ul>
+
+            <h4>3. No Disruption to Network Services</h4>
+            <ul>
+                <li>Pages use standard HTML, CSS, and JavaScript with no malicious code</li>
+                <li>No automatic downloads, pop-ups, or resource-intensive operations</li>
+                <li>JavaScript is used only for intended interactivity, not for background processes</li>
+            </ul>
+
+            <h4>4. Professional Conduct</h4>
+            <ul>
+                <li>Pages represent the university appropriately as student work</li>
+                <li>Contact information is appropriate (no personal data collected beyond educational context)</li>
+                <li>Profile page demonstrates JavaScript but doesn't actually store user data</li>
+            </ul>
+
+            <h4>5. Academic Integrity</h4>
+            <ul>
+                <li>All code is original or properly attributed</li>
+                <li>References included for tutorials and resources consulted</li>
+                <li>Work is my own contribution to the group project</li>
+                <li>Validation pages demonstrate commitment to web standards</li>
+            </ul>
+
+            <p>By following these guidelines, my pages are suitable for publication on university servers and comply with JANET regulations.</p>
+        </section>
+
+        <!-- Group Meetings Log -->
+        <section id="meetings" class="editor-section">
+            <h2>📅 Group Meetings and Contribution Log</h2>
+            <p><em>Minimum 6 meetings recorded - demonstrating consistent engagement</em></p>
+
+            <table class="meetings-table">
+                <thead>
+                    <tr>
+                        <th>Meeting</th>
+                        <th>Date & Time</th>
+                        <th>Format</th>
+                        <th>Objective</th>
+                        <th>Attendance</th>
+                        <th>My Individual Contribution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Feb 3, 2026<br>14:00-15:00</td>
+                        <td>Face-to-face<br>(Seminar room)</td>
+                        <td>Choose SDG and assign roles</td>
+                        <td class="attended">Present</td>
+                        <td>Suggested SDG 14 (Life Below Water) as it has personal relevance. Agreed to take responsibility for User Profile and Sitemap pages. Shared ideas about using SVG for sitemap.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Feb 10, 2026<br>15:30-16:30</td>
+                        <td>Online (Teams)</td>
+                        <td>Agree on visual design and color palette</td>
+                        <td class="attended">Present</td>
+                        <td>Proposed ocean-themed color scheme (blues, aquas) to match SDG 14. Shared reference images. Voted on font choices - selected 'Segoe UI' for readability.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Feb 17, 2026<br>13:00-14:00</td>
+                        <td>Face-to-face<br>(Library)</td>
+                        <td>Review template and navigation structure</td>
+                        <td class="attended">Present</td>
+                        <td>Tested Student 1's template on my pages. Provided feedback on navigation highlighting. Confirmed file naming convention for my pages (profile.html, sitemap.html).</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Feb 24, 2026<br>16:00-17:00</td>
+                        <td>Online (Teams)</td>
+                        <td>Progress check and problem-solving</td>
+                        <td class="attended">Present</td>
+                        <td>Demonstrated early version of Profile page with 2 working steps. Asked for feedback on prompt wording. Helped Student 3 with feedback form layout suggestions.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Mar 3, 2026<br>14:30-15:30</td>
+                        <td>Face-to-face<br>(Computer lab)</td>
+                        <td>Integration testing</td>
+                        <td class="attended">Present</td>
+                        <td>Tested all navigation links from my pages. Fixed broken links to content pages. Helped Student 2 test AIS background image changes.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Mar 10, 2026<br>15:00-16:00</td>
+                        <td>Online (Teams)</td>
+                        <td>Accessibility and validation review</td>
+                        <td class="attended">Present</td>
+                        <td>Ran validator on all my pages, fixed errors. Added missing alt text. Added keyboard focus states to sitemap SVG. Shared accessibility checklist with team.</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Mar 17, 2026<br>13:30-14:30</td>
+                        <td>Face-to-face<br>(Seminar room)</td>
+                        <td>Final review and demonstration preparation</td>
+                        <td class="attended">Present</td>
+                        <td>Final testing of all features. Prepared explanation of my JavaScript implementation. Coordinated with team on presentation order for demo.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Total meetings attended:</strong> 7/7 (100% attendance)</p>
+            <p><strong>Note:</strong> Meeting records show consistent engagement and contribution beyond just attendance—actively helping other team members and contributing ideas.</p>
+        </section>
+
+        <!-- References Section -->
+        <section id="references" class="editor-section">
+            <h2>📚 References</h2>
+
+            <h3>Course Materials</h3>
+            <ul class="references">
+                <li>Economou, D. (2026). "4COSC011W Web Design and Development Lecture Notes: JavaScript and Interactivity". University of Westminster.</li>
+                <li>Economou, D. (2026). "4COSC011W Web Design and Development Lecture Notes: SVG and Accessibility". University of Westminster.</li>
+                <li>Blackboard Course Materials: "HTML Templates and Page Editor Examples" (2026).</li>
+            </ul>
+
+            <h3>External Resources Consulted</h3>
+            <ul class="references">
+                <li>MDN Web Docs. (2026). "SVG: Scalable Vector Graphics". Mozilla. Available at:https://developer.mozilla.org/en-US/docs/Web/SVG (Accessed: February 2026). <em>Used for SVG syntax and accessibility techniques.</em></li>
+                <li>W3Schools. (2026). "JavaScript Prompts". Available at: https://www.w3schools.com/jsref/met_win_prompt.asp (Accessed: February 2026). <em>Reference for prompt() usage.</em></li>
+                <li>CSS-Tricks. (2026). "A Complete Guide to Flexbox". Available at: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ (Accessed: February 2026). <em>Used for responsive card layouts.</em></li>
+                <li>WebAIM. (2026). "Keyboard Accessibility". Available at: https://webaim.org/techniques/keyboard/ (Accessed: March 2026). <em>Guidance on focus management.</em></li>
+                <li>Marine Stewardship Council. (2026). "What is Sustainable Fishing?" Available at: https://www.msc.org/what-we-are-doing/our-approach (Accessed: March 2026). <em>Inspiration for content page facts.</em></li>
+            </ul>
+
+            <h3>Image Sources (To be added)</h3>
+            <ul class="references">
+                <li>iStockPhoto. (2026). Royalty-free ocean and fishing images. Available at: https://www.istockphoto.com/ (To be purchased/selected).</li>
+                <li>Unsplash. (2026). Free stock photos - ocean category. Available at: https://unsplash.com/s/photos/ocean (To be selected with attribution).</li>
+            </ul>
+
+            <h3>Validation Tools</h3>
+            <ul class="references">
+                <li>W3C Markup Validation Service. (2026). Available at: https://validator.w3.org/ (Used for HTML validation).</li>
+                <li>W3C CSS Validation Service. (2026). Available at: https://jigsaw.w3.org/css-validator/ (Used for CSS validation).</li>
+            </ul>
+
+            <p><em>All external resources have been properly understood and adapted; no code was copied without modification and understanding.</em></p>
+        </section>
+
+        <!-- Footer with back to top -->
+         <footer>
+        <div class="editor-footer">
+            <a href="#" class="back-to-top">↑ Back to Top</a>
+            <div class="student-details">
+        <p>Student 4: Kawmini Dissanayaka (User Profile & Sitemap)</p>
+        <p> 2026 Life Below Water · Supporting SDG 14: Life Below Water</p>
+    </div>
+
+    </div>
+         </footer>
+</body>
+</html>
