@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Editor – Student 1 | Life Under Water</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins',sans-serif;background:#f0f6ff;color:#1a2e44;line-height:1.75;}
+.page-wrap{max-width:900px;margin:0 auto;padding:40px 24px 80px;}
+.pe-header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:40px 36px;border-radius:16px;margin-bottom:36px;box-shadow:0 8px 32px rgba(0,119,182,0.25);}
+.pe-header .module{font-size:0.78rem;letter-spacing:3px;text-transform:uppercase;opacity:0.8;margin-bottom:8px;}
+.pe-header h1{font-size:2rem;font-weight:700;margin-bottom:6px;}
+.pe-header .meta{font-size:0.88rem;opacity:0.85;}
+.pe-header .meta span{margin-right:20px;}
+.section-card{background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(0,50,100,0.08);padding:32px;margin-bottom:28px;border-left:5px solid #00b4d8;}
+.section-card h2{font-size:1.1rem;font-weight:700;color:#0077b6;margin-bottom:18px;text-transform:uppercase;letter-spacing:1px;}
+.section-card p{font-size:0.93rem;color:#334;margin-bottom:12px;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;}
+th{background:#0077b6;color:#fff;padding:10px 14px;text-align:left;}
+td{padding:10px 14px;border-bottom:1px solid #e4edf7;}
+tr:nth-child(even) td{background:#f5faff;}
+a{color:#0077b6;}
+.tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.tag{background:#e0f3fb;color:#005f8e;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;}
+.meeting-item{border:1px solid #d0e8f5;border-radius:10px;padding:16px 20px;margin-bottom:14px;background:#f8fbff;}
+.meeting-item .date{font-size:0.78rem;font-weight:700;color:#0077b6;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.meeting-item .agenda{font-size:0.9rem;color:#334;}
+footer{text-align:center;font-size:0.8rem;color:#6a8aaa;margin-top:20px;}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+<header class="pe-header">
+<p class="module">4COSC011W – Web Design &amp; Development · 2025/26</p>
+<h1>Page Editor – Student 1</h1>
+<p class="meta"><span>📌 Topic: Life Under Water (SDG 14)</span><span>📅 Due: 30 March 2026</span><span>🎓 University of Westminster</span></p>
+</header>
+<section class="section-card">
+<h2>1. Pages Implemented</h2>
+<table><thead><tr><th>Page</th><th>File</th><th>Description</th><th>W3C Validation</th></tr></thead>
+<tbody>
+<tr><td>Home</td><td><a href="home.html">home.html</a></td><td>SDG 14 overview, stats strip, threats, and CTA</td><td><a href="https://validator.w3.org/#validate_by_input" target="_blank">Validate ↗</a></td></tr>
+<tr><td>Gallery</td><td><a href="gallery.html">gallery.html</a></td><td>Marine photo gallery with filter and lightbox</td><td><a href="https://validator.w3.org/#validate_by_input" target="_blank">Validate ↗</a></td></tr>
+</tbody></table>
+</section>
+<section class="section-card">
+<h2>2. Design &amp; Implementation Rationale</h2>
+<p><strong>Shared Template:</strong> The navigation header and footer are implemented consistently across all pages using shared CSS design tokens via CSS custom properties (variables), ensuring a unified visual language throughout the site.</p>
+<p><strong>home.html:</strong> Uses semantic HTML5 elements including &lt;header&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, and &lt;footer&gt;. A sticky header with backdrop-filter:blur() provides a glassmorphism effect without JS. The stats strip uses CSS Grid for responsive layout. The IntersectionObserver API drives scroll-reveal animations for cards and a counter animation for statistics.</p>
+<p><strong>gallery.html:</strong> The filter system uses data-cat attributes on &lt;article&gt; elements, toggled by JavaScript without any framework. The lightbox is a custom modal using position:fixed with keyboard navigation (Escape, ArrowLeft, ArrowRight) and focus management for accessibility. Images use loading="lazy" for performance.</p>
+<div class="tag-list"><span class="tag">CSS Custom Properties</span><span class="tag">CSS Grid</span><span class="tag">Flexbox</span><span class="tag">IntersectionObserver</span><span class="tag">backdrop-filter</span><span class="tag">lazy loading</span><span class="tag">ARIA Roles</span><span class="tag">Google Fonts</span></div>
+</section>
+<section class="section-card">
+<h2>3. Reflection</h2>
+<p>The most challenging aspect was achieving consistent cross-browser support for backdrop-filter on the sticky nav bar across Chrome, Edge, and Firefox. The solution was to include both -webkit-backdrop-filter and backdrop-filter properties. Building the lightbox from scratch deepened understanding of focus trapping and keyboard event management for accessibility compliance.</p>
+</section>
+<section class="section-card">
+<h2>4. Group Meeting Log</h2>
+<div class="meeting-item"><p class="date">Meeting 1 – Week 2 (Feb 2026) · Online</p><p class="agenda">Project kick-off. Topic confirmed as SDG 14. Pages allocated, folder structure agreed.</p></div>
+<div class="meeting-item"><p class="date">Meeting 2 – Week 3 (Feb 2026) · Library</p><p class="agenda">Reviewed brief. Student 1 to lead shared template design. Colour palette and font agreed.</p></div>
+<div class="meeting-item"><p class="date">Meeting 3 – Week 4 (Feb 2026) · Online</p><p class="agenda">Shared template draft reviewed by all. Navigation links and folder paths confirmed.</p></div>
+<div class="meeting-item"><p class="date">Meeting 4 – Week 5 (Mar 2026) · Lab</p><p class="agenda">Code review. Tested home.html on mobile. Gallery lightbox keyboard nav tested.</p></div>
+<div class="meeting-item"><p class="date">Meeting 5 – Week 6 (Mar 2026) · Online</p><p class="agenda">Cross-browser testing on Chrome, Edge, Firefox. Fixed nav backdrop-filter for Firefox.</p></div>
+<div class="meeting-item"><p class="date">Meeting 6 – Week 7 (Mar 2026) · Library</p><p class="agenda">Final validation and zip preparation. All W3C checks passed. Submission review.</p></div>
+</section>
+<footer><p>4COSC011W · Web Design &amp; Development · University of Westminster · Student 1 · SDG 14 – Life Under Water</p></footer>
+</div>
+</body>
+</html>

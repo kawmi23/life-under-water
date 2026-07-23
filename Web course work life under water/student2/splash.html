@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="4;url=../student1/home.html">
+    <title>Life Under Water – SDG 14</title>
+    <link rel="stylesheet" href="css/splash.css">
+</head>
+<body>
+
+    <!-- Full-screen background -->
+    <div class="bg-overlay"></div>
+
+    <!-- CSS Loader -->
+    <div class="loader-ring">
+        <div></div><div></div><div></div><div></div>
+    </div>
+
+    <!-- Main content -->
+    <main class="splash-content">
+
+        <div class="sdg-badge">SDG 14</div>
+
+        <h1 class="title">Life <span>Under</span> the Water</h1>
+        <p class="tagline">
+            Explore the ocean's wonders &amp; protect our blue planet.
+        </p>
+
+        <!-- Countdown display -->
+        <div class="countdown-wrap">
+            <p class="redirect-msg">Redirecting in</p>
+            <div class="countdown" id="countdown">4</div>
+        </div>
+
+        <!-- Skip button -->
+        <button class="skip-btn" id="skipBtn" onclick="skipIntro()">
+            <span>Skip Intro</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"/>
+            </svg>
+        </button>
+
+        <!-- Team members -->
+        <section class="team-section" aria-label="Group Members">
+            <p class="team-label">Our Team</p>
+            <ul class="team-list">
+                <li>Student 1</li>
+                <li>Student 2</li>
+                <li>Student 3</li>
+                <li>Student 4</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Wave SVG at bottom -->
+    <div class="wave-container" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,60 C360,120 1080,0 1440,60 L1440,100 L0,100 Z" fill="rgba(0,30,80,0.7)"/>
+        </svg>
+    </div>
+
+    <script src="js/splash.js"></script>
+</body>
+</html>

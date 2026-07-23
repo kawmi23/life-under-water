@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor – Student 2 | Life Under Water</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f6ff;
+            color: #1a2e44;
+            line-height: 1.75;
+        }
+
+        .page-wrap { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        /* Header */
+        .pe-header {
+            background: linear-gradient(135deg, #0077b6, #00b4d8);
+            color: #fff;
+            padding: 40px 36px;
+            border-radius: 16px;
+            margin-bottom: 36px;
+            box-shadow: 0 8px 32px rgba(0,119,182,0.25);
+        }
+        .pe-header .module { font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; margin-bottom: 8px; }
+        .pe-header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 6px; }
+        .pe-header .meta { font-size: 0.88rem; opacity: 0.85; }
+        .pe-header .meta span { margin-right: 20px; }
+
+        /* Section card */
+        .section-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 16px rgba(0,50,100,0.08);
+            padding: 32px;
+            margin-bottom: 28px;
+            border-left: 5px solid #00b4d8;
+        }
+        .section-card h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0077b6;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-card p { font-size: 0.93rem; color: #334; margin-bottom: 12px; }
+
+        /* Pages table */
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        th { background: #0077b6; color: #fff; padding: 10px 14px; text-align: left; }
+        td { padding: 10px 14px; border-bottom: 1px solid #e4edf7; }
+        tr:nth-child(even) td { background: #f5faff; }
+        a { color: #0077b6; }
+
+        /* Tech tags */
+        .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .tag {
+            background: #e0f3fb;
+            color: #005f8e;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 50px;
+        }
+
+        /* Meeting log */
+        .meeting-item {
+            border: 1px solid #d0e8f5;
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 14px;
+            background: #f8fbff;
+        }
+        .meeting-item .date { font-size: 0.78rem; font-weight: 700; color: #0077b6; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .meeting-item .agenda { font-size: 0.9rem; color: #334; }
+
+        /* Reflection */
+        .challenge-box {
+            background: #fff7e6;
+            border-left: 4px solid #ffc107;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 14px;
+            font-size: 0.9rem;
+            color: #4a3300;
+        }
+
+        @media (max-width: 600px) {
+            .pe-header { padding: 24px 20px; }
+            .section-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- Header -->
+    <header class="pe-header">
+        <p class="module">4COSC011W – Web Design &amp; Development · 2025/26</p>
+        <h1>Page Editor – Student 2</h1>
+        <p class="meta">
+            <span>📌 Topic: Life Under Water (SDG 14)</span>
+            <span>📅 Due: 30 March 2026</span>
+            <span>🎓 University of Westminster</span>
+        </p>
+    </header>
+
+    <!-- 1. Pages Overview -->
+    <section class="section-card">
+        <h2>1. Pages Implemented</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Page</th>
+                    <th>File</th>
+                    <th>Description</th>
+                    <th>W3C Validation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Splash Screen</td>
+                    <td><a href="splash.html">splash.html</a></td>
+                    <td>Auto-redirect entry page with countdown &amp; skip button</td>
+                    <td><a href="https://validator.w3.org/#validate_by_input" target="_blank">Validate ↗</a></td>
+                </tr>
+                <tr>
+                    <td>Action Impact Simulator</td>
+                    <td><a href="ais.html">ais.html</a></td>
+                    <td>Interactive SDG 14 impact scorer with dynamic backgrounds</td>
+                    <td><a href="https://validator.w3.org/#validate_by_input" target="_blank">Validate ↗</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 2. Design Rationale -->
+    <section class="section-card">
+        <h2>2. Design &amp; Implementation Rationale</h2>
+
+        <p><strong>Colour Palette:</strong> Deep navy (#020d1a) and vibrant cyan (#00d4ff) were selected to evoke the ocean environment and reinforce the SDG 14 theme. The palette provides strong contrast ratios (&gt; 4.5:1), meeting WCAG AA accessibility standards.</p>
+
+        <p><strong>Typography:</strong> Google Fonts' <em>Poppins</em> was chosen for its clean geometric style and wide weight range, allowing clear visual hierarchy through weight variation rather than multiple font families.</p>
+
+        <p><strong>splash.html – Technical Choices:</strong></p>
+        <ul style="padding-left:20px; font-size:0.9rem; color:#334; margin-bottom:12px;">
+            <li>The <code>&lt;meta http-equiv="refresh"&gt;</code> tag with <code>content="4;url=home.html"</code> implements the required 4-second auto-redirect without relying on JavaScript, ensuring it works even if JS is disabled.</li>
+            <li>The CSS loader uses four <code>&lt;div&gt;</code> children inside <code>.loader-ring</code>, styled with <code>@keyframes ring-spin</code> and staggered <code>animation-delay</code> values—purely CSS, no images or GIFs.</li>
+            <li>The JavaScript countdown uses <code>setInterval</code> with a 1000ms interval, decrementing a <code>remaining</code> variable and updating the DOM. <code>clearInterval</code> is called before any redirect to prevent ghost ticks.</li>
+        </ul>
+
+        <p><strong>ais.html – Technical Choices:</strong></p>
+        <ul style="padding-left:20px; font-size:0.9rem; color:#334; margin-bottom:12px;">
+            <li>Cards use <code>role="checkbox"</code> and <code>aria-checked</code> attributes for screen-reader accessibility. <code>tabindex="0"</code> ensures keyboard navigation.</li>
+            <li>Dynamic backgrounds are applied via <code>body.style.backgroundImage</code> and a corresponding overlay colour shift, giving three distinct visual states (polluted / recovering / thriving).</li>
+            <li>CSS Grid (<code>auto-fill, minmax(300px, 1fr)</code>) provides a responsive card layout that adapts from 3 columns on desktop to 1 column on mobile without media queries for the grid itself.</li>
+            <li>The score progress bar uses <code>role="progressbar"</code> with <code>aria-valuenow</code> updated in real time, providing screen-reader feedback on score changes.</li>
+        </ul>
+
+        <div class="tag-list">
+            <span class="tag">HTML5 Semantic Tags</span>
+            <span class="tag">CSS Grid</span>
+            <span class="tag">CSS Custom Properties</span>
+            <span class="tag">@keyframes Animations</span>
+            <span class="tag">JavaScript IIFE</span>
+            <span class="tag">ARIA Roles</span>
+            <span class="tag">backdrop-filter</span>
+            <span class="tag">Google Fonts</span>
+        </div>
+    </section>
+
+    <!-- 3. Reflection -->
+    <section class="section-card">
+        <h2>3. Reflection – Challenges &amp; Lessons Learned</h2>
+        <p>The most challenging aspect of the splash screen was ensuring the countdown timer and the meta-refresh tag remained in sync. The meta refresh fires independently of JavaScript, so a race condition could cause the page to redirect before the countdown visually reached zero. This was resolved by setting the <code>setInterval</code> tick interval to exactly 1000 ms, matching the meta refresh seconds value, and calling <code>clearInterval</code> before any programmatic redirect.</p>
+
+        <div class="challenge-box">
+            <strong>⚠ Key Challenge:</strong> Getting the CSS-only animation loader to remain visible without disrupting the page layout on smaller viewports. Resolved by using <code>position: fixed</code> for the loader, decoupling it from document flow.
+        </div>
+
+        <p style="margin-top:14px;">Building the AIS helped deepen understanding of JavaScript event delegation, ARIA accessibility attributes, and how CSS transitions can be driven dynamically via <code>style</code> manipulation in JS. The dynamic background feature demonstrated how a simple <code>backgroundImage</code> style assignment combined with a CSS <code>transition</code> property creates a smooth, professional visual experience without any library.</p>
+    </section>
+
+    <!-- 4. Group Meetings Log -->
+    <section class="section-card">
+        <h2>4. Group Meeting Log (Minimum 6 Meetings)</h2>
+
+        <div class="meeting-item">
+            <p class="date">Meeting 1 – Week 2 (February 2026) · Online (Teams)</p>
+            <p class="agenda"><strong>Agenda:</strong> Project kick-off. Agreed on SDG 14 topic, divided page responsibilities, and established shared folder structure and naming conventions.</p>
+        </div>
+
+        <div class="meeting-item">
+            <p class="date">Meeting 2 – Week 3 (February 2026) · In-person (Library)</p>
+            <p class="agenda"><strong>Agenda:</strong> Reviewed coursework brief requirements in detail. Agreed on shared template design (colours, fonts, nav) led by Student 1. Student 2 confirmed splash &amp; AIS scope.</p>
+        </div>
+
+        <div class="meeting-item">
+            <p class="date">Meeting 3 – Week 4 (February 2026) · Online (Teams)</p>
+            <p class="agenda"><strong>Agenda:</strong> Progress check. Student 1 shared template draft. All members reviewed nav structure &amp; integration approach. Student 2 proposed AIS card design.</p>
+        </div>
+
+        <div class="meeting-item">
+            <p class="date">Meeting 4 – Week 5 (March 2026) · In-person (Lab)</p>
+            <p class="agenda"><strong>Agenda:</strong> Code review session. Tested splash.html auto-redirect and skip button cross-browser (Chrome, Edge, Firefox). Identified and fixed countdown timer sync issue.</p>
+        </div>
+
+        <div class="meeting-item">
+            <p class="date">Meeting 5 – Week 6 (March 2026) · Online (Teams)</p>
+            <p class="agenda"><strong>Agenda:</strong> Reviewed AIS scoring logic. Agreed on score thresholds (0–30 Low, 31–70 Medium, 71–100 High). Tested dynamic background transitions on three browsers.</p>
+        </div>
+
+        <div class="meeting-item">
+            <p class="date">Meeting 6 – Week 7 (March 2026) · In-person (Library)</p>
+            <p class="agenda"><strong>Agenda:</strong> Final integration &amp; validation. All pages passed W3C HTML &amp; CSS validation. Assembled zip for submission. Final review of page editors and meeting logs.</p>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align:center; font-size:0.8rem; color:#6a8aaa; margin-top:20px;">
+        <p>4COSC011W · Web Design &amp; Development · University of Westminster · Student 2 · SDG 14 – Life Under Water</p>
+    </footer>
+
+</div>
+</body>
+</html>

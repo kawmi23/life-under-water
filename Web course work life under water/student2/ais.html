@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDG Action Impact Simulator – Life Under Water</title>
+    <meta name="description" content="Discover how your everyday actions impact ocean health with the SDG 14 Action Impact Simulator.">
+    <link rel="stylesheet" href="css/ais.css">
+</head>
+<body id="aisBody">
+
+    <!-- Dynamic background overlay -->
+    <div class="bg-overlay" id="bgOverlay" aria-hidden="true"></div>
+
+    <!-- ===== Header / Nav (placeholder matching shared template) ===== -->
+    <header class="site-header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <a href="splash.html" class="nav-logo">
+                🌊 <span>Life Under Water</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="ais.html" class="active" aria-current="page">AIS</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== Hero / Intro ===== -->
+    <section class="ais-hero" aria-label="Page introduction">
+        <div class="hero-inner">
+            <span class="ais-badge">SDG 14 · Interactive</span>
+            <h1 class="hero-title">SDG Action Impact<br><span>Simulator</span></h1>
+            <p class="hero-sub">
+                Select the ocean-friendly actions you take in daily life.<br>
+                See how your choices affect the health of our seas.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== Main ===== -->
+    <main class="ais-main" role="main">
+
+        <!-- Instructions -->
+        <p class="instructions" id="instructions">
+            ✅ Click the actions you regularly do, then press <strong>Calculate My Impact</strong>.
+        </p>
+
+        <!-- Action Cards Grid -->
+        <section class="cards-grid" aria-label="Action cards" id="cardsGrid">
+
+            <!-- Card 1 -->
+            <article class="card" tabindex="0" role="checkbox" aria-checked="false"
+                     aria-label="Use Less Plastic – 20 points" data-score="20" id="card1">
+                <div class="card-icon" aria-hidden="true">🚫🧴</div>
+                <h2 class="card-title">Use Less Plastic</h2>
+                <p class="card-desc">Avoid single-use plastics like straws, bags and bottles that end up in the ocean.</p>
+                <div class="card-points">+20 pts</div>
+                <div class="card-check" aria-hidden="true">✔</div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card" tabindex="0" role="checkbox" aria-checked="false"
+                     aria-label="Choose Sustainable Seafood – 15 points" data-score="15" id="card2">
+                <div class="card-icon" aria-hidden="true">🐟</div>
+                <h2 class="card-title">Sustainable Seafood</h2>
+                <p class="card-desc">Choose seafood certified by sustainable fishing standards to protect marine ecosystems.</p>
+                <div class="card-points">+15 pts</div>
+                <div class="card-check" aria-hidden="true">✔</div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card" tabindex="0" role="checkbox" aria-checked="false"
+                     aria-label="Reduce Carbon Footprint – 20 points" data-score="20" id="card3">
+                <div class="card-icon" aria-hidden="true">🌿</div>
+                <h2 class="card-title">Reduce Carbon Footprint</h2>
+                <p class="card-desc">Lower CO₂ emissions to slow ocean warming and acidification that harms coral reefs.</p>
+                <div class="card-points">+20 pts</div>
+                <div class="card-check" aria-hidden="true">✔</div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="card" tabindex="0" role="checkbox" aria-checked="false"
+                     aria-label="Support Marine Conservation – 25 points" data-score="25" id="card4">
+                <div class="card-icon" aria-hidden="true">🐠</div>
+                <h2 class="card-title">Support Marine Conservation</h2>
+                <p class="card-desc">Donate to or volunteer with organisations that protect and restore ocean habitats.</p>
+                <div class="card-points">+25 pts</div>
+                <div class="card-check" aria-hidden="true">✔</div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="card" tabindex="0" role="checkbox" aria-checked="false"
+                     aria-label="Use Ocean-Friendly Sunscreen – 10 points" data-score="10" id="card5">
+                <div class="card-icon" aria-hidden="true">☀️</div>
+                <h2 class="card-title">Ocean-Friendly Sunscreen</h2>
+                <p class="card-desc">Switch to reef-safe sunscreen that does not contain harmful chemicals like oxybenzone.</p>
+                <div class="card-points">+10 pts</div>
+                <div class="card-check" aria-hidden="true">✔</div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="card" tabindex="0" role="checkbox" aria-checked="false"
+                     aria-label="Reduce Water Pollution – 10 points" data-score="10" id="card6">
+                <div class="card-icon" aria-hidden="true">💧</div>
+                <h2 class="card-title">Reduce Water Pollution</h2>
+                <p class="card-desc">Dispose of waste and chemicals properly so they do not reach rivers and oceans.</p>
+                <div class="card-points">+10 pts</div>
+                <div class="card-check" aria-hidden="true">✔</div>
+            </article>
+
+        </section><!-- /cards-grid -->
+
+        <!-- Score Bar & CTA -->
+        <div class="score-bar-wrap">
+            <div class="score-bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Current impact score" id="scoreBar">
+                <div class="score-bar-fill" id="scoreFill"></div>
+                <span class="score-bar-label" id="scoreLabel">0 / 100</span>
+            </div>
+            <button class="calc-btn" id="calcBtn" onclick="calculateImpact()">
+                Calculate My Impact
+            </button>
+        </div>
+
+        <!-- ===== Feedback Panel ===== -->
+        <section class="feedback-panel" id="feedbackPanel" aria-live="polite" aria-atomic="true" hidden>
+
+            <div class="feedback-inner">
+                <div class="feedback-level-icon" id="feedbackIcon" aria-hidden="true"></div>
+                <h2 class="feedback-level" id="feedbackLevel">High Impact</h2>
+                <p class="feedback-score-display">
+                    Your score: <strong id="feedbackScore">100</strong> / 100
+                </p>
+                <p class="feedback-msg" id="feedbackMsg"></p>
+                <button class="reset-btn" onclick="resetSimulator()">
+                    🔄 Try Again
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer" role="contentinfo">
+        <p>4COSC011W – Web Design &amp; Development · University of Westminster · Student 2</p>
+        <p>
+            <a href="page_editor_student2.html">Page Editor</a> ·
+            <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Validator</a>
+        </p>
+    </footer>
+
+    <script src="js/ais.js"></script>
+</body>
+</html>

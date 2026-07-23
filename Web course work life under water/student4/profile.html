@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile – Life Under Water | SDG 14</title>
+    <meta name="description" content="Set up and manage your user profile for the Life Under Water SDG 14 project.">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <a href="../student2/splash.html" class="nav-logo">🌊 <span>Life Under Water</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks" role="list">
+                <li><a href="../student1/home.html">Home</a></li>
+                <li><a href="../student1/gallery.html">Gallery</a></li>
+                <li><a href="../student2/ais.html">Impact Simulator</a></li>
+                <li><a href="../student3/feedback.html">Feedback</a></li>
+                <li><a href="../student3/team.html">Team</a></li>
+                <li><a href="profile.html" class="active" aria-current="page">Profile</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+
+        <section class="page-hero" aria-label="Page header">
+            <div class="page-hero-inner">
+                <span class="page-tag">Your Account</span>
+                <h1>User <span>Profile</span></h1>
+                <p>Personalise your experience and track your ocean impact journey.</p>
+            </div>
+        </section>
+
+        <div class="profile-wrapper">
+
+            <!-- PROFILE CARD -->
+            <aside class="profile-card" aria-label="Profile summary" id="profileCard">
+                <div class="avatar-wrap">
+                    <div class="avatar" id="avatarDisplay" aria-label="User avatar">🌊</div>
+                    <div class="avatar-picker" role="group" aria-label="Choose avatar">
+                        <button class="av-btn" data-emoji="🌊" aria-label="Wave emoji">🌊</button>
+                        <button class="av-btn" data-emoji="🐠" aria-label="Fish emoji">🐠</button>
+                        <button class="av-btn" data-emoji="🐋" aria-label="Whale emoji">🐋</button>
+                        <button class="av-btn" data-emoji="🦈" aria-label="Shark emoji">🦈</button>
+                        <button class="av-btn" data-emoji="🐢" aria-label="Turtle emoji">🐢</button>
+                        <button class="av-btn" data-emoji="🦑" aria-label="Squid emoji">🦑</button>
+                    </div>
+                </div>
+                <h2 class="profile-name" id="profileName">Ocean Explorer</h2>
+                <p class="profile-bio-display" id="profileBioDisplay">No bio yet.</p>
+                <div class="profile-badges" id="profileBadges" aria-label="User badges">
+                    <span class="badge" id="badge-impact">🌊 Ocean Guardian</span>
+                </div>
+                <div class="profile-joined" id="profileJoined" aria-label="Join date"></div>
+            </aside>
+
+            <!-- EDIT FORM -->
+            <section class="profile-form-section" aria-labelledby="edit-heading">
+                <h2 id="edit-heading" class="section-title">Edit Your Profile</h2>
+
+                <form id="profileForm" aria-label="Profile edit form">
+
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label for="pFirstName">First Name</label>
+                            <input type="text" id="pFirstName" placeholder="Your first name" autocomplete="given-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="pLastName">Last Name</label>
+                            <input type="text" id="pLastName" placeholder="Your last name" autocomplete="family-name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pEmail">Email Address</label>
+                        <input type="email" id="pEmail" placeholder="your@email.com" autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pLocation">Location</label>
+                        <input type="text" id="pLocation" placeholder="e.g. London, UK" autocomplete="country-name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pBio">Bio <span class="optional">(optional)</span></label>
+                        <textarea id="pBio" rows="4" placeholder="Share your passion for the ocean..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pInterest">Primary Ocean Interest</label>
+                        <select id="pInterest">
+                            <option value="">-- Select interest --</option>
+                            <option value="conservation">Marine Conservation</option>
+                            <option value="diving">Scuba Diving</option>
+                            <option value="research">Ocean Research</option>
+                            <option value="activism">Environmental Activism</option>
+                            <option value="photography">Underwater Photography</option>
+                            <option value="education">Ocean Education</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <fieldset class="notify-fieldset">
+                            <legend>Notification Preferences</legend>
+                            <label class="toggle-label">
+                                <input type="checkbox" id="notifNews" role="switch" aria-checked="false">
+                                <span class="toggle-track" aria-hidden="true"><span class="toggle-thumb"></span></span>
+                                Ocean news &amp; updates
+                            </label>
+                            <label class="toggle-label">
+                                <input type="checkbox" id="notifImpact" role="switch" aria-checked="false">
+                                <span class="toggle-track" aria-hidden="true"><span class="toggle-thumb"></span></span>
+                                Monthly impact reports
+                            </label>
+                        </fieldset>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save" id="saveBtn">
+                            💾 Save Profile
+                        </button>
+                        <button type="button" class="btn-clear" id="clearBtn">
+                            🗑 Clear
+                        </button>
+                    </div>
+
+                    <div class="save-toast" id="saveToast" aria-live="polite" hidden>✅ Profile saved!</div>
+
+                </form>
+
+                <!-- Impact score mini display -->
+                <div class="impact-mini" aria-label="Impact score from Action Simulator">
+                    <h3>Your Impact Score</h3>
+                    <div class="impact-score" id="impactDisplay">–</div>
+                    <p>Run the <a href="../student2/ais.html">Impact Simulator</a> to get your score.</p>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <p>4COSC011W · Web Design &amp; Development · University of Westminster · Student 4</p>
+            <p><a href="page_editor_student4.html">Page Editor</a> · <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Validator</a></p>
+        </div>
+    </footer>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>

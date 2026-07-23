@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery – Life Under Water | SDG 14</title>
+    <meta name="description" content="A stunning photo gallery of ocean life, marine conservation, and the beauty of our underwater world.">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <a href="../student2/splash.html" class="nav-logo">🌊 <span>Life Under Water</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks" role="list">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="gallery.html" class="active" aria-current="page">Gallery</a></li>
+                <li><a href="../student2/ais.html">Impact Simulator</a></li>
+                <li><a href="../student3/feedback.html">Feedback</a></li>
+                <li><a href="../student3/team.html">Team</a></li>
+                <li><a href="../student4/profile.html">Profile</a></li>
+                <li><a href="../student4/sitemap.html">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-label="Page header">
+        <div class="page-hero-inner">
+            <span class="page-tag">Marine Photography</span>
+            <h1>Ocean <span>Gallery</span></h1>
+            <p>A visual journey through the breathtaking beauty and fragility of our ocean ecosystems.</p>
+        </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar" role="navigation" aria-label="Gallery filters">
+        <div class="filter-inner">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="wildlife">Wildlife</button>
+            <button class="filter-btn" data-filter="reef">Reef</button>
+            <button class="filter-btn" data-filter="threats">Threats</button>
+        </div>
+    </div>
+
+    <!-- GALLERY GRID -->
+    <main id="main-content" role="main">
+        <section class="gallery-section" aria-label="Gallery images">
+            <div class="gallery-grid" id="galleryGrid">
+
+                <article class="gallery-item" data-cat="wildlife" tabindex="0"
+                         aria-label="Clownfish in anemone – click to enlarge">
+                    <img src="images/gallery_img1.png"
+                         alt="A vibrant orange clownfish nestled among the tentacles of a sea anemone"
+                         loading="lazy">
+                    <div class="gallery-caption">
+                        <h2>Clownfish &amp; Anemone</h2>
+                        <p>Found in warm waters of the Indian and Pacific Oceans</p>
+                        <span class="gallery-tag">Wildlife</span>
+                    </div>
+                </article>
+
+                <article class="gallery-item" data-cat="wildlife" tabindex="0"
+                         aria-label="Manta ray gliding – click to enlarge">
+                    <img src="images/gallery_img2.png"
+                         alt="A large manta ray gliding gracefully through clear deep blue ocean water"
+                         loading="lazy">
+                    <div class="gallery-caption">
+                        <h2>Manta Ray</h2>
+                        <p>One of the ocean's most elegant and majestic creatures</p>
+                        <span class="gallery-tag">Wildlife</span>
+                    </div>
+                </article>
+
+                <article class="gallery-item" data-cat="reef" tabindex="0"
+                         aria-label="Coral reef ecosystem – click to enlarge">
+                    <img src="images/gallery_img3.png"
+                         alt="A diverse and colourful coral reef ecosystem filled with tropical fish"
+                         loading="lazy">
+                    <div class="gallery-caption">
+                        <h2>Coral Reef Ecosystem</h2>
+                        <p>Reefs cover less than 1% of the ocean floor yet support 25% of species</p>
+                        <span class="gallery-tag">Reef</span>
+                    </div>
+                </article>
+
+                <article class="gallery-item" data-cat="wildlife" tabindex="0"
+                         aria-label="Sea turtle – click to enlarge">
+                    <img src="images/gallery_img4.png"
+                         alt="A sea turtle swimming peacefully through turquoise ocean water"
+                         loading="lazy">
+                    <div class="gallery-caption">
+                        <h2>Green Sea Turtle</h2>
+                        <p>Endangered species facing threats from habitat loss and pollution</p>
+                        <span class="gallery-tag">Wildlife</span>
+                    </div>
+                </article>
+
+                <article class="gallery-item" data-cat="threats" tabindex="0"
+                         aria-label="Ocean plastic pollution – click to enlarge">
+                    <img src="images/gallery_img5.png"
+                         alt="Plastic pollution floating in the ocean, showing the environmental crisis"
+                         loading="lazy">
+                    <div class="gallery-caption">
+                        <h2>Plastic Pollution Crisis</h2>
+                        <p>8 million tonnes of plastic enter our oceans every single year</p>
+                        <span class="gallery-tag threats-tag">Threats</span>
+                    </div>
+                </article>
+
+                <article class="gallery-item" data-cat="wildlife" tabindex="0"
+                         aria-label="Dolphins at sunset – click to enlarge">
+                    <img src="images/gallery_img6.png"
+                         alt="Dolphins leaping joyfully out of the ocean at golden sunset"
+                         loading="lazy">
+                    <div class="gallery-caption">
+                        <h2>Dolphins at Sunset</h2>
+                        <p>Dolphins are highly intelligent social mammals vital to ocean health</p>
+                        <span class="gallery-tag">Wildlife</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox" hidden>
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">✕</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+            <div class="lightbox-info">
+                <h2 id="lightboxTitle"></h2>
+                <p id="lightboxDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <p>4COSC011W · Web Design &amp; Development · University of Westminster · Student 1</p>
+            <p><a href="page_editor_student1.html">Page Editor</a> · <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Validator</a></p>
+        </div>
+    </footer>
+
+    <script src="js/gallery.js"></script>
+</body>
+</html>

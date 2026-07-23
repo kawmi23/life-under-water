@@ -1,0 +1,30 @@
+/* =================================================
+   Shared Design System – Life Under Water (SDG 14)
+   4COSC011W · All Students Reference Variables
+   ================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+:root {
+    /* Colour Palette */
+    --clr-bg:        #020d1a;
+    --clr-surface:   rgba(255,255,255,0.06);
+    --clr-border:    rgba(255,255,255,0.12);
+    --clr-text:      #e2f4ff;
+    --clr-text-dim:  #8bb8d4;
+    --clr-teal:      #00b4d8;
+    --clr-teal-dk:   #0077b6;
+    --clr-cyan:      #00d4ff;
+    --clr-green:     #06d6a0;
+    --clr-amber:     #ffb703;
+    --clr-red:       #ef4444;
+
+    /* Typography */
+    --font-main:     'Poppins', sans-serif;
+
+    /* Layout */
+    --header-h:      66px;
+    --radius:        16px;
+    --radius-sm:     10px;
+    --max-w:         1200px;
+}

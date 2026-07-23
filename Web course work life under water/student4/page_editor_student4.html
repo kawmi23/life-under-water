@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Editor – Student 4 | Life Under Water</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins',sans-serif;background:#f5f0ff;color:#1a1a2e;line-height:1.75;}
+.page-wrap{max-width:900px;margin:0 auto;padding:40px 24px 80px;}
+.pe-header{background:linear-gradient(135deg,#7b2d8b,#9b5de5);color:#fff;padding:40px 36px;border-radius:16px;margin-bottom:36px;box-shadow:0 8px 32px rgba(123,45,139,0.3);}
+.pe-header .module{font-size:0.78rem;letter-spacing:3px;text-transform:uppercase;opacity:0.8;margin-bottom:8px;}
+.pe-header h1{font-size:2rem;font-weight:700;margin-bottom:6px;}
+.pe-header .meta{font-size:0.88rem;opacity:0.85;}
+.pe-header .meta span{margin-right:20px;}
+.section-card{background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(50,0,100,0.08);padding:32px;margin-bottom:28px;border-left:5px solid #9b5de5;}
+.section-card h2{font-size:1.1rem;font-weight:700;color:#7b2d8b;margin-bottom:18px;text-transform:uppercase;letter-spacing:1px;}
+.section-card p{font-size:0.93rem;color:#334;margin-bottom:12px;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;}
+th{background:#9b5de5;color:#fff;padding:10px 14px;text-align:left;}
+td{padding:10px 14px;border-bottom:1px solid #e8d8f5;}
+tr:nth-child(even) td{background:#faf5ff;}
+a{color:#7b2d8b;}
+.tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.tag{background:#f3e8ff;color:#5e1b8e;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;}
+.meeting-item{border:1px solid #e8d8f5;border-radius:10px;padding:16px 20px;margin-bottom:14px;background:#faf5ff;}
+.meeting-item .date{font-size:0.78rem;font-weight:700;color:#7b2d8b;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.meeting-item .agenda{font-size:0.9rem;color:#334;}
+footer{text-align:center;font-size:0.8rem;color:#8060a0;margin-top:20px;}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+<header class="pe-header">
+<p class="module">4COSC011W – Web Design &amp; Development · 2025/26</p>
+<h1>Page Editor – Student 4</h1>
+<p class="meta"><span>📌 Topic: Life Under Water (SDG 14)</span><span>📅 Due: 30 March 2026</span><span>🎓 University of Westminster</span></p>
+</header>
+<section class="section-card">
+<h2>1. Pages Implemented</h2>
+<table><thead><tr><th>Page</th><th>File</th><th>Description</th><th>W3C Validation</th></tr></thead>
+<tbody>
+<tr><td>User Profile</td><td><a href="profile.html">profile.html</a></td><td>Editable user profile persisted via localStorage</td><td><a href="https://validator.w3.org/#validate_by_input" target="_blank">Validate ↗</a></td></tr>
+<tr><td>Sitemap</td><td><a href="sitemap.html">sitemap.html</a></td><td>SVG visual sitemap showing all pages and connections</td><td><a href="https://validator.w3.org/#validate_by_input" target="_blank">Validate ↗</a></td></tr>
+</tbody></table>
+</section>
+<section class="section-card">
+<h2>2. Design &amp; Implementation Rationale</h2>
+<p><strong>profile.html:</strong> The profile form persists all data using localStorage.setItem() and localStorage.getItem() with JSON serialisation. This allows the profile to survive page reloads without any server-side code. The avatar picker uses emoji characters as visual elements, eliminating image asset dependencies while remaining fully accessible via aria-label attributes. CSS toggle switches are implemented using a hidden checkbox, a styled span track, and a thumb that translates 20px on :checked state using CSS transitions.</p>
+<p><strong>sitemap.html:</strong> The SVG sitemap is hand-authored using SVG primitives: &lt;rect&gt;, &lt;line&gt;, &lt;text&gt;, and &lt;linearGradient&gt; elements. &lt;marker&gt; with a path is used for directional arrow heads. The &lt;a&gt; SVG element wraps each node to make them navigable. The SVG is given role="img" with a descriptive aria-label, and individual groups have role="link" with aria-label for screen readers.</p>
+<div class="tag-list"><span class="tag">localStorage</span><span class="tag">SVG</span><span class="tag">linearGradient</span><span class="tag">CSS Toggles</span><span class="tag">Emoji Avatars</span><span class="tag">ARIA roles</span><span class="tag">JSON serialisation</span></div>
+</section>
+<section class="section-card">
+<h2>3. Reflection</h2>
+<p>The most challenging aspect was designing the SVG sitemap so it rendered clearly at all viewport sizes whilst remaining clickable. Using viewBox with a fluid width:100% SVG and min-width:700px on the container ensures horizontal scrolling on small screens rather than illegible diagram compression. The profile localStorage implementation required careful handling of the "first visit" state where no stored data exists.</p>
+</section>
+<section class="section-card">
+<h2>4. Group Meeting Log</h2>
+<div class="meeting-item"><p class="date">Meeting 1 – Week 2 (Feb 2026) · Online</p><p class="agenda">Kick-off. Student 4 assigned profile page and SVG sitemap. Discussed localStorage approach.</p></div>
+<div class="meeting-item"><p class="date">Meeting 2 – Week 3 (Feb 2026) · Library</p><p class="agenda">Reviewed all page URLs to plan correct sitemap structure and inter-page links.</p></div>
+<div class="meeting-item"><p class="date">Meeting 3 – Week 4 (Feb 2026) · Online</p><p class="agenda">Profile localStorage schema finalised. SVG sitemap wireframe sketched and approved.</p></div>
+<div class="meeting-item"><p class="date">Meeting 4 – Week 5 (Mar 2026) · Lab</p><p class="agenda">SVG tested on mobile – added min-width and horizontal scroll. Profile save/load tested.</p></div>
+<div class="meeting-item"><p class="date">Meeting 5 – Week 6 (Mar 2026) · Online</p><p class="agenda">Accessibility review of SVG with screen reader. Fixed missing aria-labels on SVG nodes.</p></div>
+<div class="meeting-item"><p class="date">Meeting 6 – Week 7 (Mar 2026) · Library</p><p class="agenda">Final W3C validation. SVG inline in HTML validated. Submission zip assembled and reviewed.</p></div>
+</section>
+<footer><p>4COSC011W · Web Design &amp; Development · University of Westminster · Student 4 · SDG 14 – Life Under Water</p></footer>
+</div>
+</body>
+</html>
